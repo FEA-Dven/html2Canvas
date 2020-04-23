@@ -9,18 +9,9 @@ import html2canvas from "../../lib/html2canvas";
 (window.html2canvas || html2canvas)(shareContent, opts)
               .then(canvas => {
                 let url = canvas.toDataURL("image/png");
-                this.$Toast.clear();
-                this.posterUrl = url;
-                this.$store.commit("setPosterUrl", url); // 更新cookie里面的token
-                if (this.drawTimes === 0) {
-                  this.startMakePoster();
-                  this.drawTimes++;
-                }
+                console.log(url)
               })
               .catch(err => {
-                this.$Dialog({
-                  title: "亲~网络异常，请重试",
-                  message: JSON.stringify(err)
-                });
+                // do sth
               });
 ```
